@@ -22,4 +22,4 @@ The module will create the below resources:
 
 // i.e xyz.com is the domain name and you will create the subzone Lab1.xyz.com // 
 
-https://user-images.githubusercontent.com/83562796/135913871-7e4c667a-1271-4492-90ed-17c38b47d64b.png
+![image](https://user-images.githubusercontent.com/83562796/135950651-255f2698-c3f3-466b-8477-e8e6e8b46685.png)

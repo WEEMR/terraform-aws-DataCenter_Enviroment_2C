@@ -22,6 +22,7 @@ variable "Public_SubHosted_Zone_id" {}
 variable "default_SG" {}
 variable "Public_SG" {}
 variable "Private_SG" {}
+variable "hub_1_private_subnet_cidr" {}
 
 # spoke 1 Subnet IDs Dependencies
 
@@ -74,6 +75,10 @@ variable "FGT_VM_AMI" {
     us-east-1 = "ami-0b9c648555f605b8a"
   }
 }
+
+#FGT 6.4.7 AMI 
+#ami-0d480c4d334beff0e
+
 
 // Ubuntu 20.04 LTS
 variable "Ubuntu_WebServer_AMI" {

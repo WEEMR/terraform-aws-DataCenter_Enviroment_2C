@@ -10,7 +10,7 @@ resource "aws_default_route_table" "public_subnets_RT" {
   }
 
   tags = {
-    Name       = "${var.username}_Terraform_public_subnets_RT"
+    Name       = "${var.username}_Terraform_Hub_1_public_subnets_RT"
     Owner      = var.username
     Enviroment = "Terraform Testing"
     Region     = "US East 1"
@@ -26,20 +26,6 @@ resource "aws_route_table" "hub_1_pvt_rt" {
   tags = {
     Name       = "${var.username}_hub_1_pvt_rt"
     reference  = "hub_1_pvt_rt"
-    Owner      = var.username
-    Enviroment = "Terraform Testing"
-  }
-}
-
-// Virgina Private Subnet Route Table
-
-resource "aws_route_table" "spoke_1_pvt_rt" {
-  provider       = aws.virginia
-  vpc_id = aws_vpc.SDWAN_VPC.id
-
-  tags = {
-    Name       = "${var.username}_spoke_1_pvt_rt"
-    reference  = "spoke_1_pvt_rt"
     Owner      = var.username
     Enviroment = "Terraform Testing"
   }

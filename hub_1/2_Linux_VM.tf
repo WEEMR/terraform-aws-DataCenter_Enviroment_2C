@@ -116,9 +116,31 @@ resource "aws_instance" "hub_1_Apache" {
   #
   sudo systemctl restart xrdp
   sudo reboot
-
-  # Change Hostname
-  hostnamectl set-hostname Hub_1_Ubuntu
+  echo "" > iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo “*** IPERF Client and Server Configurations ***” >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo  Server Setup: >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo iperf3 -s -p 8080 >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo  Client Setup: >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo iperf3 -c 10.150.10.20 -u -p 8080 -t 30 -i 2 -b 100M >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo General Reference >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo https://help.signiant.com/media-shuttle/general/iperf >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo QoS Reference >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo https://cordero.me/iperf-and-qos-tos-settings/ >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
   
   EOF
 
@@ -126,4 +148,3 @@ resource "aws_instance" "hub_1_Apache" {
     Name = "${var.username}_TF_hub1_Ubuntu_Apache_Server"
   }
 }
-

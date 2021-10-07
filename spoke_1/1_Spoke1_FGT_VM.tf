@@ -54,7 +54,16 @@ resource "aws_network_interface" "spoke_1_eth2_lan" {
 
 # Assgining spoke 1 LAN interface as the main egress point [Next Hop] for the LAN subnet.
 
-resource "aws_route" "spoke_1_Pvt_RT" {
+resource "aws_route" "spoke_1_Pvt_RT_to_Hub_1" {
+  provider               = aws.spoke_1_vpc
+  route_table_id         = var.spoke_1_pvt_rt_id
+  destination_cidr_block = var.hub_1_private_subnet_cidr
+  depends_on             = [aws_network_interface.spoke_1_eth2_lan]
+  network_interface_id   = aws_network_interface.spoke_1_eth2_lan.id
+
+}
+
+resource "aws_route" "spoke_1_Pvt_RT_default_out" {
   provider               = aws.spoke_1_vpc
   route_table_id         = var.spoke_1_pvt_rt_id
   destination_cidr_block = "0.0.0.0/0"
@@ -62,6 +71,10 @@ resource "aws_route" "spoke_1_Pvt_RT" {
   network_interface_id   = aws_network_interface.spoke_1_eth2_lan.id
 
 }
+
+
+// ------------------------------------------------------------------------------ Creating FortiGate
+
 
 resource "aws_instance" "spoke_1" {
   provider          = aws.spoke_1_vpc

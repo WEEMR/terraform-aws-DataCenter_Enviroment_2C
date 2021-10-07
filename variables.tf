@@ -1,6 +1,6 @@
 ##############################################################################################################
 #                                                                                                            #
-#                                Data Center - Module 2C Terraform deployment                                 #
+#                                Data Center - Module 1 Terraform deployment                                 #
 #                                                                                                            #
 ##############################################################################################################
 
@@ -32,17 +32,9 @@ variable "virginia_region" {
   default     = "us-east-1"
 }
 
-// -------------------------------------------------------------------------------- Hub 1 VPC CIDR Block
 
-variable "hub_1_vpc_cidr" {
-  default = "10.150.0.0/16"
-}
 
-// -------------------------------------------------------------------------------- Spoke 1 VPC CIDR Block
 
-variable "spoke_1_vpc_cidr" {
-  default = "10.150.0.0/16"
-}
 
 # ------------------------------------------------------------------------------------------------------------
 
@@ -50,21 +42,28 @@ variable "spoke_1_vpc_cidr" {
 
 # ------------------------------------------------------------------------------------------------------------
 
+// -------------------------------------------------------------------------------- Hub 1 VPC CIDR Block
+
+variable "hub_1_vpc_cidr" {
+  default = "10.100.0.0/16"
+}
+
+
 // Subnets 
 
 variable "hub_1_wan1_subnet_cidr" {
   description = "hub 1 WAN 1 Subnet CIDR Block"
-  default     = "10.150.100.0/24"
+  default     = "10.100.1.0/24"
 }
 
 variable "hub_1_wan2_subnet_cidr" {
   description = "hub 1 WAN 2 Subnet CIDR Block"
-  default     = "10.150.200.0/24"
+  default     = "10.100.2.0/24"
 }
 
 variable "hub_1_private_subnet_cidr" {
   description = "hub 1 LAN Subnet CIDR Block"
-  default     = "10.150.10.0/24"
+  default     = "10.100.10.0/24"
 }
 
 
@@ -72,45 +71,45 @@ variable "hub_1_private_subnet_cidr" {
 
 variable "hub_1_wan1_pvt_ip" {
   description = "hub 1 WAN 1 Interface IP"
-  default     = ["10.150.100.10"]
+  default     = ["10.100.1.10"]
 }
 
 variable "hub_1_wan2_pvt_ip" {
   description = "hub 1 WAN 2 Interface IP"
-  default     = ["10.150.200.10"]
+  default     = ["10.100.2.10"]
 }
 
 variable "hub_1_lan_pvt_IP" {
   description = "hub 1 LAN Interface IP"
-  default     = ["10.150.10.10"]
+  default     = ["10.100.10.10"]
 }
 
 # Ubuntu
 
 variable "hub_1_Ubuntu_LAN_IP" {
   description = "hub 1 Ubunutu IP"
-  default     = ["10.150.10.20"]
+  default     = ["10.100.10.20"]
 }
 
 # Windows
 
 variable "hub_1_WinSrv_LAN_IP" {
   description = "hub 1 Windows Server 2019 IP"
-  default     = ["10.150.10.25"]
+  default     = ["10.100.10.25"]
 }
 
 # FortiManager
 
 variable "hub_1_FMG_LAN_IP" {
   description = "hub 1 FortiManager IP"
-  default     = ["10.150.10.30"]
+  default     = ["10.100.10.30"]
 }
 
 # FortiAnalyzer
 
 variable "hub_1_FAZ_LAN_IP" {
   description = "hub 1 FortiAnalyzer IP"
-  default     = ["10.150.10.40"]
+  default     = ["10.100.10.40"]
 }
 
 # ------------------------------------------------------------------------------------------------------------
@@ -119,21 +118,28 @@ variable "hub_1_FAZ_LAN_IP" {
 
 # ------------------------------------------------------------------------------------------------------------
 
+// -------------------------------------------------------------------------------- Spoke 1 VPC CIDR Block
+
+variable "spoke_1_vpc_cidr" {
+  default = "10.1.0.0/16"
+}
+
+
 // Subnets 
 
 variable "spoke_1_wan1_subnet_cidr" {
   description = "spoke 1 WAN 1 Subnet CIDR Block"
-  default     = "10.150.101.0/24"
+  default     = "10.1.1.0/24"
 }
 
 variable "spoke_1_wan2_subnet_cidr" {
   description = "spoke 1 WAN 2 Subnet CIDR Block"
-  default     = "10.150.201.0/24"
+  default     = "10.1.2.0/24"
 }
 
 variable "spoke_1_private_subnet_cidr" {
   description = "spoke 1 LAN Subnet CIDR Block"
-  default     = "10.150.1.0/24"
+  default     = "10.1.10.0/24"
 }
 
 
@@ -141,29 +147,29 @@ variable "spoke_1_private_subnet_cidr" {
 
 variable "spoke_1_wan1_pvt_ip" {
   description = "spoke 1 WAN 1 Interface IP"
-  default     = ["10.150.101.10"]
+  default     = ["10.1.1.10"]
 }
 
 variable "spoke_1_wan2_pvt_ip" {
   description = "spoke 1 WAN 2 Interface IP"
-  default     = ["10.150.201.10"]
+  default     = ["10.1.2.10"]
 }
 
 variable "spoke_1_lan_pvt_IP" {
   description = "spoke 1 LAN Interface IP"
-  default     = ["10.150.1.10"]
+  default     = ["10.1.10.10"]
 }
 
 # Ubuntu
 
 variable "spoke_1_Ubuntu_LAN_IP" {
   description = "spoke 1 Ubunutu IP"
-  default     = ["10.150.1.20"]
+  default     = ["10.1.10.20"]
 }
 
 # Windows
 
 variable "spoke_1_WinSrv_LAN_IP" {
   description = "spoke 1 Windows Server 2019 IP"
-  default     = ["10.150.1.25"]
+  default     = ["10.1.10.25"]
 }

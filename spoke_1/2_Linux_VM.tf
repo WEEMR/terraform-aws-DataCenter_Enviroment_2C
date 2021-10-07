@@ -116,10 +116,36 @@ resource "aws_instance" "spoke_1_Apache" {
   #
   sudo systemctl restart xrdp
   sudo reboot
+  # 
+  #   Create iperf_setup.txt file
+  #
+  echo "" > iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo “*** IPERF Client and Server Configurations ***” >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo  Server Setup: >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo iperf3 -s -p 8080 >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo  Client Setup: >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo iperf3 -c 10.150.10.20 -u -p 8080 -t 30 -i 2 -b 100M >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo General Reference >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo https://help.signiant.com/media-shuttle/general/iperf >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo QoS Reference >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo https://cordero.me/iperf-and-qos-tos-settings/ >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
+  echo "" >> iperf_setup.txt
 
-  # Change Hostname
-  hostnamectl set-hostname Spoke_1_Ubuntu
-  
+
   EOF
 
   tags = {

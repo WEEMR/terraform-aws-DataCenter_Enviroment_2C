@@ -28,6 +28,7 @@ module "hub_1" {
   keyname                      = var.keyname
   virginia_region              = var.virginia_region
   Public_SubHosted_Zone_id     = module.Hub_1_Prod_VPC.Public_SubHosted_Zone_id
+  spoke_1_private_subnet_cidr  = var.spoke_1_private_subnet_cidr
 
   # Security Groups 
   
@@ -96,6 +97,7 @@ module "spoke_1" {
   Public_SubHosted_Zone_id       = module.Hub_1_Prod_VPC.Public_SubHosted_Zone_id
   hub1_FMG_For_Spokes            = module.hub_1.hub1_FMG_For_Spokes
   hub1_FAZ_For_Spokes            = module.hub_1.hub1_FAZ_For_Spokes
+  hub_1_private_subnet_cidr      = var.hub_1_private_subnet_cidr
 
   # Security Groups 
   

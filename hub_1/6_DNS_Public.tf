@@ -83,6 +83,20 @@ resource "aws_route53_record" "hub1_FAZ_Public" {
   }
 }
 
+resource "aws_route53_record" "hub1_FAC_Public" {
+  provider = aws.virginia
+  depends_on = [time_sleep.wait_15_seconds_Public]
+  zone_id = var.Public_SubHosted_Zone_id
+  name       = "FAC"
+  type       = "A"
+
+  alias {
+    name                   = aws_route53_record.hub1_FGT_Public_DNS.fqdn
+    zone_id                = var.Public_SubHosted_Zone_id
+    evaluate_target_health = true
+  }
+}
+
 resource "aws_route53_record" "ssl_vpn" {
   provider = aws.virginia
   depends_on = [time_sleep.wait_15_seconds_Public]

@@ -73,6 +73,17 @@ resource "aws_instance" "hub_1_Apache" {
   #
   echo "<html><style>body { font-size: 15px;}</style><body><h1>Hello, Everyone &#128075</h1><h2>This is our hub 1 Apache Server created via Terraform &#128079 &#128170; </h2></body></html>" > /var/www/html/index.html
   #
+  # 
+  #      Create a 100mb test file
+  #
+  #dd if=/dev/zero of=100MB_test_file bs=1024 count=102400
+  #
+  #
+  #    move the file to the Apache server so we can use wget
+  #
+  #
+  #sudo cp 100MB_test_file /var/www/html/index.html
+  #
   #    Install Ubuntu Desktop (GNOME)  
   #
   sudo apt install -y gnome-session gnome-terminal
@@ -116,31 +127,6 @@ resource "aws_instance" "hub_1_Apache" {
   #
   sudo systemctl restart xrdp
   sudo reboot
-  echo "" > iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo “*** IPERF Client and Server Configurations ***” >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo  Server Setup: >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo iperf3 -s -p 8080 >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo  Client Setup: >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo iperf3 -c 10.150.10.20 -u -p 8080 -t 30 -i 2 -b 100M >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo General Reference >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo https://help.signiant.com/media-shuttle/general/iperf >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo QoS Reference >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo https://cordero.me/iperf-and-qos-tos-settings/ >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
-  echo "" >> iperf_setup.txt
   
   EOF
 

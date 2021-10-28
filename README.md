@@ -15,11 +15,11 @@ The module will create the below resources:
 - FortiManager and FortiAnalyzer will be deployed as well behind the Hub FGT on Port 3 [LAN]
 
 
-![image](https://user-images.githubusercontent.com/83562796/135950457-cdc97d4b-1069-4234-a827-3f131e50a0c1.png)
+![image](https://user-images.githubusercontent.com/82145296/139328604-eac6b26b-3478-41b0-96dd-0cec3e7c7cd0.png)
 
 
 // The DNS Hosted Zones must be sub-zones for a domain that is registered or managed by AWS Route53 //
 
 // i.e xyz.com is the domain name and you will create the subzone Lab1.xyz.com // 
 
-![image](https://user-images.githubusercontent.com/83562796/135950651-255f2698-c3f3-466b-8477-e8e6e8b46685.png)
+![image](https://user-images.githubusercontent.com/82145296/139328480-89548d95-0950-44f6-a04e-b64b3a882d7c.png)

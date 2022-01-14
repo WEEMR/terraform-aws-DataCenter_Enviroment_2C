@@ -98,7 +98,7 @@ variable "Ubuntu_WebServer_AMI" {
 variable "WinSrv2019_ami" {
   type = map
   default = {
-    us-east-1      = "ami-0b18ca1a93b538109"
+    us-east-1      = "ami-0b17e49efb8d755c3"
   }
 }
 
